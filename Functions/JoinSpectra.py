@@ -1,7 +1,7 @@
 from NeoPower import *
 import numpy as np
 
-def JoinSpectra(DataSet,min_mz=200,max_mz=300,minInt=1e2,ML=1,MindDif=2.003,MaxDif=2.005):
+def JoinSpectra(DataSet,min_mz=200,max_mz=300,minInt=1e2,ML=1,MinDif=2.003,MaxDif=2.005):
     FirstSpectrum=True
     c=0
     for spectrum in DataSet:

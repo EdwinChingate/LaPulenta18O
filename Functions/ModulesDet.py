@@ -12,8 +12,8 @@ def ModulesDet(AdjacencyMatrix,p=0,Mod=0,ModList=[],start=True): #Search for mod
     AdjacencyMatrix[p,:]=0
     AdjacencyMatrix[:,p]=0
     for neighbor in NeighborLoc:
-        AdjacencyMatrix[:,neighbor]=0
-        AdjacencyMatrix[neighbor,:]=0
+       # AdjacencyMatrix[:,neighbor]=0
+       # AdjacencyMatrix[neighbor,:]=0
      #   print(p,neighbor)
         Mod.append(neighbor)
         ModList=ModulesDet(AdjacencyMatrix,p=neighbor,Mod=Mod,ModList=ModList,start=False)

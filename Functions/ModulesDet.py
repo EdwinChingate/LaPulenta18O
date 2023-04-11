@@ -1,4 +1,5 @@
 import numpy as np
+#sys.setrecursionlimit(100000000) This is a recursive function, you may have some errors from python, as it predefines a maximum number of iterations
 def ModulesDet(AdjacencyMatrix,p=0,Mod=0,ModList=[],start=True): #Search for modules inside the AdjacencyMatrix
     #Hashtag
     #print(type(Mod))

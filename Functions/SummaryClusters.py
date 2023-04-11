@@ -5,8 +5,9 @@ from ClusterStats import *
 import pandas as pd
 def SummaryClusters(SignalsMat,ModList,MinNumberCandidatesClustering=3,ReturnDF=True):    
     Summary=[]
-    for x in ModList:    
-        Summary.append(ClusterStats(SignalsMat[x,:]))#([Mean_RT,std_RT,Mean_mz,std_mz,len(x)])
+    for x in ModList:
+        modNet=list(set(x))
+        Summary.append(ClusterStats(SignalsMat[modNet,:]))
     SummaryArray=np.array(Summary)
    # ShowDF(pd.DataFrame(SummaryArray))
     SummaryFilter_Loc=np.where(SummaryArray[:,4]>MinNumberCandidatesClustering)[0]

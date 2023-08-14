@@ -7,9 +7,6 @@ def SignalsStats(SignalsMat,Isotopomer=0,alpha=0.01): #Isotopomer refers to eith
     AverageMZ=sum(SignalsMat[:,Isotopomer]*RelativeInt)
     AverageRT=sum(SignalsMat[:,7]*RelativeInt)
     l=len(SignalsMat[:,1])    
-    if l<3:
-        return [0]*7 #Check
-    
     VarianMZ=sum(RelativeInt*(SignalsMat[:,Isotopomer]-AverageMZ)**2)*l/(l-1)  
     StdMZ=np.sqrt(VarianMZ)
     VarianRT=sum(RelativeInt*(SignalsMat[:,7]-AverageRT)**2)*l/(l-1)    
@@ -17,5 +14,5 @@ def SignalsStats(SignalsMat,Isotopomer=0,alpha=0.01): #Isotopomer refers to eith
     tref=t.interval(1-alpha, l-1)[1]
     ConfidenceIntervalDa=tref*StdMZ/np.sqrt(l)
     ConfidenceInterval=ConfidenceIntervalDa/AverageMZ*1e6
-    SignalsStats=[AverageRT,StdRT,AverageMZ,StdMZ,l,ConfidenceIntervalDa,ConfidenceInterval]
+    SignalsStats=[AverageRT,StdRT,AverageMZ,StdMZ,l,ConfidenceIntervalDa,ConfidenceInterval,SumIntens]
     return SignalsStats

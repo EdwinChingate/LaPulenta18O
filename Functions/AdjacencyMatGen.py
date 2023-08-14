@@ -2,7 +2,7 @@ import numpy as np
 from mz_Diference import *
 from RT_Diference import *
 #Replacing the clustring strategy with the minimum distance
-def AdjacencyMatGen(SignalsMat,MinNumberCandidatesClustering=5,max_mz_Tol=1e-2,max_RT_Tol=0.3):
+def AdjacencyMatGen(SignalsMat,max_mz_Tol=5e-3,max_RT_Tol=0.3):
     DifRT=RT_Diference(SignalsMat)
     Difmz=mz_Diference(SignalsMat)
     NumberofCandidates=len(DifRT)

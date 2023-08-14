@@ -4,8 +4,8 @@ import numpy as np
 def ClusterStats(SignalsMat,alpha=0.01,TheoricalDif=2.0042449932959006):               
     #Difference=AverageMZ2-AverageMZ
     #Light isotopomer mz1
-    LightSignalsSum=SignalsStats(SignalsMat,Isotopomer=0,alpha=alpha)[:-1]
-    HeavySignalsSum=SignalsStats(SignalsMat,Isotopomer=1,alpha=alpha)[:-1]
+    LightSignalsSum=SignalsStats(SignalsMat,Isotopomer=0,alpha=alpha)
+    HeavySignalsSum=SignalsStats(SignalsMat,Isotopomer=1,alpha=alpha)
     #print(len(LightSignalsSum),len(LightSignalsSum))
     WelchVec=WelchTest(SignalsStats1=LightSignalsSum,SignalsStats2=HeavySignalsSum,alpha=alpha)
     Dif=WelchVec[0]

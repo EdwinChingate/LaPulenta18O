@@ -1,5 +1,5 @@
 import numpy as np
-def ModulesDetMax(MaxID,AdjacencyMatrix,deep=0,MaxDeep=3,Module=[]):
+def ModulesDetMax(MaxID,AdjacencyMatrix,Module=[],deep=0,MaxDeep=3):
 #This is function also check for neightboors, but not more than 'MaxDeep', which is not a problem, as this function is just a first step in the clustering    
     CurrentModule=list(np.where(AdjacencyMatrix[MaxID,:]>0)[0])
     if len(CurrentModule)>0:       

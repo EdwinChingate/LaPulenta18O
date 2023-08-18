@@ -1,4 +1,5 @@
 import numpy as np
+import gc
 def mz_Diference(SignalsMat):#With filters for mz and RT
     NumberofCandidates=len(SignalsMat)
     DifMat=np.zeros([NumberofCandidates,NumberofCandidates])
@@ -7,4 +8,6 @@ def mz_Diference(SignalsMat):#With filters for mz and RT
         mz_candidate=SignalsMat[candidatePos,0]
         mz_Dif=abs(mz_candidate-SignalsMat[:,0])       
         DifMat[candidatePos,:]=mz_Dif
+        del mz_Dif
+        gc.collect()
     return DifMat

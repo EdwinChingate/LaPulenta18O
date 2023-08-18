@@ -1,8 +1,6 @@
 from NeoPower import *
 import numpy as np
 import gc
-#Some signals are repeated some middle values are used in the left and the right
-#Include intensities
 def JoinSpectra(DataSet,min_mz=200,max_mz=300,minInt=1e2,ML=1,MinDif=2.0038,MaxDif=2.0046,min_RT=0,max_RT=100):
     FirstSpectrum=True
     c=0
@@ -29,8 +27,8 @@ def JoinSpectra(DataSet,min_mz=200,max_mz=300,minInt=1e2,ML=1,MinDif=2.0038,MaxD
             del SpectrumFil
             del DifTable
             del LDifTable
+            gc.collect()
         del MSLevel
-        gc.collect()            
         c+=1
     del c    
     del FirstSpectrum   

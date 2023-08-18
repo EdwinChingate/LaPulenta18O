@@ -4,7 +4,7 @@ def ChargeDataSet(DataSetName,OSLinux=True):
     if OSLinux:
     	ConnectorSym='/'
     else:
-    	ConnectorSym='\\'    
+    	ConnectorSym='\\'      
     home=os.getcwd()
     path=home+ConnectorSym+'Data'
     DataSet=MSExperiment()

@@ -8,7 +8,6 @@ def SummaryClusters(SignalsMat,Modules,MinNumberCandidatesClustering=3,alpha=0.0
     Summary=[]
     for x in Modules:
         modNet=list(set(x))
-        #print(modNet)
         Summary.append(ClusterStats(SignalsMat[modNet,:],alpha=alpha,TheoricalDif=TheoricalDif))
     SummaryArray=np.array(Summary)
     SummaryFilter_Loc=np.where(SummaryArray[:,5]>MinNumberCandidatesClustering)[0]

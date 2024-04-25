@@ -15,4 +15,5 @@ def O2Omachine(DataSetName,SignalsMat,min_mz=80,max_mz=1000,minInt=1e4,MinSignal
     del KernelIDs
     del Kernel
     del SummaryCluster
+    del Modules    
     gc.collect()

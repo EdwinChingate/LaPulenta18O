@@ -2,7 +2,7 @@ from NeoPower import *
 from JoiningSpectrum import *
 import numpy as np
 import gc
-def SpectraSpectrum(MSLevel,RT,min_RT,max_RT,ML,c,min_mz,max_mz,minInt,JoinedSpectra,spectrum,minDif,maxDif):      
+def SpectraSpectrum(MSLevel,RT,min_RT,max_RT,ML,c,min_mz,max_mz,minInt,JoinedSpectra,spectrum,MinDif,MaxDif):      
     MSLevelCondition=MSLevel==ML
     min_RTCondition=RT>min_RT
     max_RTCondition=RT<max_RT

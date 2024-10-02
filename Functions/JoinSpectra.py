@@ -31,3 +31,4 @@ def JoinSpectra(DataSet,min_mz=200,max_mz=300,minInt=1e2,ML=1,MinDif=2.0038,MaxD
         del MSLevel
         c+=1
     del c    
+    return JoinedSpectra    

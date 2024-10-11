@@ -2,7 +2,7 @@ from NeoPower import *
 from JoiningSpectrum import *
 import numpy as np
 import gc
-def SpectraSpectrum(MSLevel,RT,min_RT,max_RT,ML,c,min_mz,max_mz,minInt,JoinedSpectra,spectrum,MinDif,MaxDif):      
+def SpectraSpectrum(MSLevel,RT,min_RT,max_RT,ML,c,min_mz,max_mz,minInt,SignalsMat,spectrum,MinDif,MaxDif):      
     MSLevelCondition=MSLevel==ML
     min_RTCondition=RT>min_RT
     max_RTCondition=RT<max_RT
@@ -15,9 +15,9 @@ def SpectraSpectrum(MSLevel,RT,min_RT,max_RT,ML,c,min_mz,max_mz,minInt,JoinedSpe
         SpectrumCondition=(min_mzCondition)&(max_mzCondition)&(minIntCondition)
         SpectrumFil=RawSpectrum[SpectrumCondition,:]
         DifTable=NeoPower(SpectrumFil,MinDif=MinDif,MaxDif=MaxDif)        
-        JoinedSpectra=JoiningSpectrum(DifTable,RT,JoinedSpectra,c)
+        SignalsMat=JoiningSpectrum(DifTable,RT,JoinedSpectra,c)
         del RawSpectrum
         del SpectrumFil
         del DifTable
         gc.collect()
-    return JoinedSpectra
+    return SignalsMat

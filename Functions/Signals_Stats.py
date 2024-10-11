@@ -1,6 +1,6 @@
 from scipy.stats import t
 import numpy as np
-def SignalsStats(SignalsMat,Isotopomer=0,alpha=0.01): #Isotopomer refers to either the most abundant isotopomer, or the one with 18O
+def Signals_Stats(SignalsMat,Isotopomer=0,alpha=0.01): #Isotopomer refers to either the most abundant isotopomer, or the one with 18O
     IntensityCol=5+Isotopomer
     SumIntens=sum(SignalsMat[:,IntensityCol])
     RelativeInt=SignalsMat[:,IntensityCol]/SumIntens

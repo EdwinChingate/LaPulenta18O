@@ -1,10 +1,11 @@
-from ClusterStats import *
+from Signals_Stats import *
 import pandas as pd
 def RawKernel(SignalsMat,KernelIDs,alpha=0.01):    
     Kernel=[]
     counter=0
     for cent in KernelIDs:
-        Kernel.append(SignalsStats(SignalsMat[cent,:],Isotopomer=0,alpha=alpha))        
+        SignalsStats=Signals_Stats(SignalsMat[cent,:],Isotopomer=0,alpha=alpha)
+        Kernel.append(SignalsStats)        
         counter+=1
-    KernelArray=np.array(Kernel)
-    return KernelArray
+    Kernel=np.array(Kernel)
+    return Kernel

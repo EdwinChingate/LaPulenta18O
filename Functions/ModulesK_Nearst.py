@@ -10,7 +10,8 @@ def ModulesK_Nearst(SignalsMat,Kernel,SafetyFactor=4):
         DistanceMat=DistanceKernel(Signal,Kernel)
         pre_Centroid=Pre_SelectCentroid(DistanceMat,Kernel,SafetyFactor=SafetyFactor)
         if len(pre_Centroid)>0:
-            ID=int(SelectCentroid(DistanceMat[pre_Centroid,:]))
+            centroid=int(SelectCentroid(DistanceMat[pre_Centroid,:]))        
+            ID=centroid
         else:
             ID=-1
         Modules[ID].append(signalID)

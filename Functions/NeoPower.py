@@ -15,7 +15,8 @@ def NeoPower(DataFiltered,MinDif=2.003,MaxDif=2.005):
                 del Intensity_mz2   
             del mz2                
         del mz1                                             
-    gc.collect()                
-    return np.array(DifList)
+    gc.collect()
+    DifTable=np.array(DifList)                    
+    return DifTable
 #One of the loops can dissapear by replacing with the np.where() function
 #Avoid repetitions with min and max

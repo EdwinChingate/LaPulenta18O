@@ -4,7 +4,7 @@ import gc
 def JoinSpectra(DataSet,min_mz=200,max_mz=300,minInt=1e2,ML=1,MinDif=2.0038,MaxDif=2.0046,min_RT=0,max_RT=100):
     FirstSpectrum=True
     c=0
-    JoinedSpectra=[]
+    SignalsMat=[]
     for spectrum in DataSet:
         MSLevel=spectrum.getMSLevel()
         RT=spectrum.getRT()/60 #RT in minutes 
@@ -19,10 +19,10 @@ def JoinSpectra(DataSet,min_mz=200,max_mz=300,minInt=1e2,ML=1,MinDif=2.0038,MaxD
             del RT
             if LDifTable>0:
                 if FirstSpectrum:
-                    JoinedSpectra=DifTable.copy()
+                    SignalsMat=DifTable.copy()
                     FirstSpectrum=False                    
                 else:
-                    JoinedSpectra=np.append(JoinedSpectra,DifTable,axis=0)
+                    SignalsMat=np.append(SignalsMat,DifTable,axis=0)
             del RawSpectrum
             del SpectrumFil
             del DifTable
@@ -31,4 +31,4 @@ def JoinSpectra(DataSet,min_mz=200,max_mz=300,minInt=1e2,ML=1,MinDif=2.0038,MaxD
         del MSLevel
         c+=1
     del c    
-    return JoinedSpectra    
+    return SignalsMat
